@@ -33,3 +33,4 @@ typings/
 .eslintcache
 
 .DS_Store
+.vscode/
