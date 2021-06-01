@@ -20,7 +20,7 @@ const formatElement = function formatElement(node, options = {}) {
     return null;
   }
 
-  // No nested keys, so can get awat with a quick and dirty flat merge
+  // No nested keys, so can get away with a quick and dirty flat merge
   const opts = { ...DEFAULTS, ...options };
 
   if (node.nodeType === nodeTypes.TEXT) {
