@@ -12,7 +12,7 @@ Touch up copy by converting plain ASCII punctuation into “smart” Unicode equ
 
 Nicetype is an ES6 port of the abandoned [jsPrettify](http://code.google.com/archive/p/jsprettify) library.
 
-While jsPrettify’s rules aren’t the most thorough—this is also it’s strength as it reduces false positives and the opportunity to conflict with the original input’s style.
+While jsPrettify’s rules aren’t the most thorough—this is also its strength as it reduces false positives and possible conflicts with the original input’s style.
 
 ## Installation
 
