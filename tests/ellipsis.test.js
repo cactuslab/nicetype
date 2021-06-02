@@ -1,4 +1,4 @@
-import ellipsis from '../src/lib/rules/ellipsis';
+import ellipsis from '../src/lib/transformations/ellipsis';
 
 const TEST_CASES = [
   {

@@ -1,4 +1,4 @@
-import dashes from '../src/lib/rules/dashes';
+import dashes from '../src/lib/transformations/dashes';
 
 const TEST_CASES = [
   {

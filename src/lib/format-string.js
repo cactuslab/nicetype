@@ -1,6 +1,6 @@
-import quotes from './rules/quotes';
-import dashes from './rules/dashes';
-import ellipsis from './rules/ellipsis';
+import quotes from './transformations/quotes';
+import dashes from './transformations/dashes';
+import ellipsis from './transformations/ellipsis';
 
 const formatString = function formatString(string) {
   if (string !== '' && !string) {

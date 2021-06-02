@@ -1,4 +1,4 @@
-import quotes from '../src/lib/rules/quotes';
+import quotes from '../src/lib/transformations/quotes';
 
 const TEST_CASES = [
   {
