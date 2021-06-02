@@ -1,6 +1,6 @@
 {
   "name": "nicetype",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Touch up copy by transforming plain ASCII punctuation into “smart” Unicode equivalents.",
   "main": "dist/nicetype.js",
   "module": "src/index.js",
