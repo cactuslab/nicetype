@@ -5,9 +5,9 @@ module.exports = (env) => ({
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: `${pkg.alias}.js`,
+    filename: `${pkg.name}.js`,
     library: {
-      name: `${pkg.alias}`,
+      name: `${pkg.name}`,
       type: 'umd',
     },
     clean: true,

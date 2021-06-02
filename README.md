@@ -6,7 +6,7 @@ Touch up copy by converting plain ASCII punctuation into “smart” Unicode equ
 * Hyphen-dashes to em and endashes
 * Two, three or more dots to horizontal ellipsis
 
-> Please note this plugin is intended for English locales.
+> Please note these transforms are intended for English locales.
 
 ---
 
@@ -33,7 +33,7 @@ exampleElement.innerText = exampleString;
 nicetype.formatElement(exampleElement, {
   // exclusionAttribute: String,
   // tagNameExclusions: []
-}); // HTMLElement or Node (TEXT_NODE)
+}); // HTMLElement or Node of type: TEXT_NODE
 ```
 
 ## API
@@ -44,11 +44,11 @@ Returns transformed string
 
 #### Parameters
 
-**string**: `String` to transform
+* **string**: `String` to transform
 
 ### nicetype.formatElement(element, options)
 
-Applies transformations to an element’s and its childrens’ [text nodes](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType). If an element has the `exclusionAttribute` or a matching [tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName) found in the `tagNameExclusions`—that branch’s replacement will stop.
+Applies transformations to an element and its childrens’ [text nodes](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType). If an element has the `exclusionAttribute` or is of a [tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName) listed in `tagNameExclusions`—that branch’s replacement will stop.
 
 #### Parameters
 
