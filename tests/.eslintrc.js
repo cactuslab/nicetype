@@ -1,13 +1,14 @@
 module.exports = {
   root: true,
   plugins: [
-    'jasmine',
+    'jest',
   ],
   extends: [
-    'plugin:jasmine/recommended',
+    'plugin:jest/recommended',
     'airbnb-base',
   ],
   env: {
-    jasmine: true,
+    browser: true,
+    'jest/globals': true,
   },
 };

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-default
 import { default as formatElement, DEFAULTS as FORMAT_ELEMENT_DEFAULTS } from '../src/lib/format-element';
 import formatString from '../src/lib/format-string';
 
@@ -6,7 +7,7 @@ const TEST_STRINGS = {
   TITLE: 'The Emperor\'s New Groove',
   SUBTITLE: 'Emperor Kuzco is turned into a llama by his ex-administrator Yzma---and must now regain his throne.',
   TAGNAME_EXCLUSION: 'Lowercase æ: <kbd>OPTION</kbd> + <kbd>\'</kbd>',
-}
+};
 
 describe('formatElement', () => {
   afterEach(() => {
@@ -14,6 +15,7 @@ describe('formatElement', () => {
   });
 
   test('Single element', () => {
+    // eslint-disable-next-line max-len
     // For whatever reason JSDOM and `document.createElement('div')` failed to create childNodes which broke `formatElement`
     document.body.innerHTML = `<div>${TEST_STRINGS.MIXED}</div>`;
     const element = document.querySelector('div');
@@ -24,7 +26,7 @@ describe('formatElement', () => {
   });
 
   test('Single empty element', () => {
-    document.body.innerHTML = `<div></div>`;
+    document.body.innerHTML = '<div></div>';
     const element = document.querySelector('div');
 
     formatElement(element);
@@ -32,7 +34,7 @@ describe('formatElement', () => {
   });
 
   test('Text node', () => {
-    const textNode = document.createTextNode(TEST_STRINGS.MIXED)
+    const textNode = document.createTextNode(TEST_STRINGS.MIXED);
 
     formatElement(textNode);
 
@@ -42,9 +44,9 @@ describe('formatElement', () => {
   test('Element with children', () => {
     document.body.innerHTML = [
       '<hgroup>',
-        `<h1>${TEST_STRINGS.TITLE}</h1>`,
-        `<h2>${TEST_STRINGS.SUBTITLE}</h2>`,
-      '</hgroup>'
+      `<h1>${TEST_STRINGS.TITLE}</h1>`,
+      `<h2>${TEST_STRINGS.SUBTITLE}</h2>`,
+      '</hgroup>',
     ].join('');
 
     const hgroup = document.querySelector('hgroup');
@@ -60,7 +62,7 @@ describe('formatElement', () => {
 
   test('Element matches excluded tagName (`object`)', () => {
     document.body.innerHTML = [
-      `<object>${TEST_STRINGS.MIXED}</object>`
+      `<object>${TEST_STRINGS.MIXED}</object>`,
     ].join('');
 
     const object = document.querySelector('object');
@@ -73,8 +75,8 @@ describe('formatElement', () => {
   test('Element with child that matches excluded tagName (`kbd`)', () => {
     document.body.innerHTML = [
       '<article>',
-        `<h1>${TEST_STRINGS.TITLE}</h1>`,
-        `<p>${TEST_STRINGS.TAGNAME_EXCLUSION}</p>`,
+      `<h1>${TEST_STRINGS.TITLE}</h1>`,
+      `<p>${TEST_STRINGS.TAGNAME_EXCLUSION}</p>`,
       '</article>',
     ].join('');
 
@@ -92,7 +94,7 @@ describe('formatElement', () => {
   test('Element with child that matches custom tagName exclusions (`[textarea, toLowerCase]`)', () => {
     document.body.innerHTML = [
       '<div>',
-        `<customElement>${TEST_STRINGS.MIXED}</customElement>`,
+      `<customElement>${TEST_STRINGS.MIXED}</customElement>`,
       '</div>',
     ].join('');
 
@@ -110,9 +112,9 @@ describe('formatElement', () => {
   test('Element with children that have exclusion data attribute', () => {
     document.body.innerHTML = [
       '<hgroup>',
-        `<h1>${TEST_STRINGS.TITLE}</h1>`,
-        `<h2 ${FORMAT_ELEMENT_DEFAULTS.exclusionAttribute}>${TEST_STRINGS.SUBTITLE}</h2>`,
-      '</hgroup>'
+      `<h1>${TEST_STRINGS.TITLE}</h1>`,
+      `<h2 ${FORMAT_ELEMENT_DEFAULTS.exclusionAttribute}>${TEST_STRINGS.SUBTITLE}</h2>`,
+      '</hgroup>',
     ].join('');
 
     const hgroup = document.querySelector('hgroup');
@@ -127,13 +129,13 @@ describe('formatElement', () => {
   });
 
   test('Element with children that have custom exclusion data attribute', () => {
-    const EXCLUSION_ATTRIBUTE = 'data-js-nicetype-persist'
+    const EXCLUSION_ATTRIBUTE = 'data-js-nicetype-persist';
 
     document.body.innerHTML = [
       '<hgroup>',
-        `<h1>${TEST_STRINGS.TITLE}</h1>`,
-        `<h2 ${EXCLUSION_ATTRIBUTE}>${TEST_STRINGS.SUBTITLE}</h2>`,
-      '</hgroup>'
+      `<h1>${TEST_STRINGS.TITLE}</h1>`,
+      `<h2 ${EXCLUSION_ATTRIBUTE}>${TEST_STRINGS.SUBTITLE}</h2>`,
+      '</hgroup>',
     ].join('');
 
     const hgroup = document.querySelector('hgroup');
@@ -152,7 +154,7 @@ describe('formatElement', () => {
   test('Quotes replaced around child tag', () => {
     document.body.innerHTML = [
       '<div>',
-        '\'<em>foo</em>\'s',
+      '\'<em>foo</em>\'s',
       '</div>',
     ].join('');
 
@@ -166,7 +168,7 @@ describe('formatElement', () => {
   test('Preserves whitespace around child tags', () => {
     document.body.innerHTML = [
       '<div>',
-        'a <em>b</em> c',
+      'a <em>b</em> c',
       '</div>',
     ].join('');
 
@@ -175,7 +177,7 @@ describe('formatElement', () => {
     formatElement(div);
 
     expect(div.textContent).toBe(formatString('a b c'));
-  })
+  });
 
   test('Returns null with invalid input', () => {
     expect(formatElement()).toBeNull();

@@ -16,7 +16,7 @@ const TEST_CASES = [
   {
     name: 'Replace quotes with whitespace',
     test: {
-      'Word\t"word"\nword.': 'Word\t“word”\nword.'
+      'Word\t"word"\nword.': 'Word\t“word”\nword.',
     },
   },
   {
@@ -28,7 +28,7 @@ const TEST_CASES = [
       '"word":': '“word”:',
       '"word"?': '“word”?',
       '"word"!': '“word”!',
-    }
+    },
   },
   {
     name: 'Replace quotes after dashes',
@@ -50,25 +50,24 @@ const TEST_CASES = [
     name: 'Replace quotes in parens',
     test: {
       '("")': '(“”)',
-    }
+    },
   },
   {
     name: 'Replace quotes around slashes',
     test: {
       '"Foo"/"Bar"': '“Foo”/“Bar”',
-    }
-  }
+    },
+  },
 ];
 
 describe('Double quotes', () => {
   TEST_CASES.forEach((testCase) => {
     describe(`${testCase.name}`, () => {
-
       Object.keys(testCase.test).forEach((key, index) => {
         test(`${index}: ${key}`, () => {
           expect(quotes(key)).toBe(testCase.test[key]);
         });
-      })
+      });
     });
   });
 });

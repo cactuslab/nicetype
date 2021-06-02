@@ -17,12 +17,11 @@ const TEST_CASES = [
 describe('formatString', () => {
   TEST_CASES.forEach((testCase) => {
     describe(`${testCase.name}`, () => {
-
       Object.keys(testCase.test).forEach((key, index) => {
         test(`${index}: ${key}`, () => {
           expect(formatString(key)).toBe(testCase.test[key]);
         });
-      })
+      });
     });
   });
 

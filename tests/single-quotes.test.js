@@ -32,7 +32,7 @@ const TEST_CASES = [
       'iPhone6\'s': 'iPhone6’s',
       '1990\'s': '1990’s',
       'don\'t': 'don’t',
-      "Paul’s Diner": "Paul’s Diner",
+      'Paul’s Diner': 'Paul’s Diner',
     },
   },
   {
@@ -49,7 +49,7 @@ const TEST_CASES = [
     name: 'Replace with punctuation',
     test: {
       'foo \'bar\'.': 'foo ‘bar’.',
-    }
+    },
   },
   {
     name: 'Replace contiguous single quote pairs',
@@ -60,7 +60,7 @@ const TEST_CASES = [
   {
     name: 'Replace quoted contractions',
     test: {
-      '\'It\'s a beautiful day!\'': '‘It’s a beautiful day!’'
+      '\'It\'s a beautiful day!\'': '‘It’s a beautiful day!’',
     },
   },
   // Emdash replacement
@@ -74,25 +74,24 @@ const TEST_CASES = [
     name: 'Replace quotes in parens',
     test: {
       '(\'\')': '(‘’)',
-    }
+    },
   },
   {
     name: 'Replace quotes around slashes',
     test: {
       '\'Foo\'/\'Bar\'': '‘Foo’/‘Bar’',
-    }
-  }
+    },
+  },
 ];
 
 describe('Single quotes', () => {
   TEST_CASES.forEach((testCase) => {
     describe(`${testCase.name}`, () => {
-
       Object.keys(testCase.test).forEach((key, index) => {
         test(`${index}: ${key}`, () => {
           expect(quotes(key)).toBe(testCase.test[key]);
         });
-      })
+      });
     });
   });
 });

@@ -29,7 +29,7 @@ const TEST_CASES = [
     test: {
       'and - she said': 'and—she said',
       ' - she said': ' - she said', // false positive; no change at the beginning of paragraph
-    }
+    },
   },
   // (Typopo)
   {
@@ -41,18 +41,17 @@ const TEST_CASES = [
       'and —she said': 'and—she said',
       'and—she said': 'and—she said',
     },
-  }
+  },
 ];
 
 describe('Dashes', () => {
   TEST_CASES.forEach((testCase) => {
     describe(`${testCase.name}`, () => {
-
       Object.keys(testCase.test).forEach((key, index) => {
         test(`${index}: ${key}`, () => {
           expect(dashes(key)).toBe(testCase.test[key]);
         });
-      })
+      });
     });
   });
 });
