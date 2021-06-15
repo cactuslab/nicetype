@@ -27,7 +27,7 @@ const TEST_CASES = [
       'Find \'em!': 'Find ’em!',
       'Just \'cause I wanna.': 'Just ’cause I wanna.',
       'Hers\'': 'Hers’',
-      'INCHEBA \'89': 'INCHEBA ’89',
+      'Expo \'70': 'Expo ’70',
       '69\'ers': '69’ers',
       'iPhone6\'s': 'iPhone6’s',
       '1990\'s': '1990’s',
