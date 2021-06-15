@@ -65,6 +65,7 @@ Applies transformations to an element and its childrens’ [text nodes](https://
 ### Roadmap
 
 * Non-breaking space: Short words/widow prevention
+* Expose advanced/opinionated dash options…, or remove entirely?
 * Add NVM
 * TypeScript
 
