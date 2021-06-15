@@ -6,7 +6,7 @@ function replaceSingleQuotePairs(string) {
   // Original pattern from jsPrettify:
   // "(^|[\\(\\s\"-])'([\\s\\S]*?)'($|[\\)\\s\".,;:?!-])"
   const REGEXP = new RegExp(/(^|[(\W"-])'([\s\S]*?)'($|[)\W".,;:?!-])/, 'gi');
-  const REPLACEMENT = `$1${codePoints.LSQUO}$2${codePoints.RSQUO}$3`;
+  const REPLACEMENT = `$1${codePoints['LEFT SINGLE QUOTATION MARK']}$2${codePoints['RIGHT SINGLE QUOTATION MARK']}$3`;
 
   return string.replace(REGEXP, REPLACEMENT);
 }
@@ -18,7 +18,7 @@ const quotes = function quotes(string) {
   // https://github.com/surfinzap/typopo/blob/master/src/lib/punctuation/single-quotes.js
   {
     const REGEXP = new RegExp(`([${patterns.singleQuotes}])(n)([${patterns.singleQuotes}])`, 'gi');
-    const REPLACEMENT = `${codePoints.RSQUO}$2${codePoints.RSQUO}`;
+    const REPLACEMENT = `${codePoints['RIGHT SINGLE QUOTATION MARK']}$2${codePoints['RIGHT SINGLE QUOTATION MARK']}`;
 
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
@@ -28,7 +28,7 @@ const quotes = function quotes(string) {
   {
     const CONTRACTIONS = 'cause|em|mid|midst|mongst|prentice|round|sblood|ssdeath|sfoot|sheart|shun|slid|slife|slight|snails|strewth|til|tis|twas|tween|twere|twill|twixt|twould';
     const REGEXP = new RegExp(`(${patterns.singleQuote})(${CONTRACTIONS})`, 'gi');
-    const REPLACEMENT = `${codePoints.RSQUO}$2`;
+    const REPLACEMENT = `${codePoints['RIGHT SINGLE QUOTATION MARK']}$2`;
 
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
@@ -40,7 +40,7 @@ const quotes = function quotes(string) {
     // eslint-disable-next-line no-useless-escape
     const PATTERN = `([\d${patterns.latin}])(${patterns.singleQuote})([${patterns.latin}])`;
     const REGEXP = new RegExp(PATTERN, 'gi');
-    const REPLACEMENT = `$1${codePoints.RSQUO}$3`;
+    const REPLACEMENT = `$1${codePoints['RIGHT SINGLE QUOTATION MARK']}$3`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 
@@ -56,21 +56,21 @@ const quotes = function quotes(string) {
   // Right Single Quotes (JS Prettify)
   {
     const REGEXP = new RegExp(/'/, 'gi');
-    const REPLACEMENT = codePoints.RSQUO;
+    const REPLACEMENT = codePoints['RIGHT SINGLE QUOTATION MARK'];
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 
   // Right Double Quotes (JS Prettify)
   {
     const REGEXP = new RegExp(/"($|[)\s-–—/.,;:?!\u2019])/, 'gi');
-    const REPLACEMENT = `${codePoints.RDQUO}$1`;
+    const REPLACEMENT = `${codePoints['RIGHT DOUBLE QUOTATION MARK']}$1`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 
   // Left Double Quotes (JS Prettify)
   {
     const REGEXP = new RegExp(/(^|[(\s-–—/\u2018])"/, 'gi');
-    const REPLACEMENT = `$1${codePoints.LDQUO}`;
+    const REPLACEMENT = `$1${codePoints['LEFT DOUBLE QUOTATION MARK']}`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 

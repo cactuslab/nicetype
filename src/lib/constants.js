@@ -1,29 +1,45 @@
+// https://en.wikipedia.org/wiki/Dash#Common_dashes_and_their_Unicode_code_points
+// https://en.wikipedia.org/wiki/Quotation_mark#Unicode_code_point_table
+// https://en.wikipedia.org/wiki/Whitespace_character#Unicode
 export const codePoints = {
-  NDASH: '\u2013',
-  MDASH: '\u2014',
-  LSQUO: '\u2018',
-  RSQUO: '\u2019',
-  LDQUO: '\u201c',
-  RDQUO: '\u201d',
-  HELLIP: '\u2026',
+  'QUOTATION MARK': '\u0022',
+  APOSTROPHE: '\u0027',
+  //
+  'HYPHEN-MINUS': '\u002D',
+  'SOFT HYPHEN': '\u00AD',
+  HYPHEN: '\u2010',
+  'NON-BREAKING HYPHEN': '\u2011',
+  'FIGURE DASH': '\u2012',
+  'EN DASH': '\u2013',
+  'EM DASH': '\u2014',
+  'HORIZONTAL BAR': '\u2015',
+  'SWUNG DASH': '\u2053',
+  //
+  'LEFT SINGLE QUOTATION MARK': '\u2018',
+  'RIGHT SINGLE QUOTATION MARK': '\u2019',
+  'LEFT DOUBLE QUOTATION MARK': '\u201c',
+  'RIGHT DOUBLE QUOTATION MARK': '\u201d',
+  //
+  'HORIZONTAL ELLIPSIS': '\u2026',
+  //
   SPACE: '\u0020',
-  NBSP: '\u00A0',
-  ENSP: '\u2002',
-  EMSP: '\u2003',
-  EMSP13: '\u2004',
-  EMSP14: '\u2005',
-  NUMSP: '\u2007',
-  PUNCSP: '\u2008',
-  THINSP: '\u2009',
-  HAIRSP: '\u200A',
-  NNBSP: '\u202F',
-  DASH: '\u2010',
+  'NO-BREAK SPACE': '\u00A0',
+  'EN SPACE': '\u2002',
+  'EM SPACE': '\u2003',
+  'THREE-PER-EM SPACE': '\u2004',
+  'FOUR-PER-EM SPACE': '\u2005',
+  'FIGURE SPACE': '\u2007',
+  'PUNCTUATION SPACE': '\u2008',
+  'THIN SPACE': '\u2009',
+  'HAIR SPACE': '\u200A',
+  'NARROW NO-BREAK SPACE': '\u202F',
 };
 
 export const patterns = {
   // Unicode blocks: Basic Latin, Latin-1 Supplement, Latin Extended-A, Latin Extended-B
   latin: '\u0000-\u007F\u0080-\u00FF\u0100-\u017F\u0180-\u024F',
-  spaces: `${codePoints.SPACE}${codePoints.NBSP}${codePoints.ENSP}${codePoints.EMSP}${codePoints.PUNCSP}${codePoints.THINSP}${codePoints.HAIRSP}${codePoints.NNBSP}`,
+  spaces: `${codePoints.SPACE}${codePoints['NO-BREAK SPACE']}${codePoints['EN SPACE']}${codePoints['EM SPACE']}${codePoints['PUNCTUATION SPACE']}${codePoints['THIN SPACE']}${codePoints['HAIR SPACE']}${codePoints['NARROW NO-BREAK SPACE']}`,
+  dashes: `${codePoints['HYPHEN-MINUS']}${codePoints['EN DASH']}${codePoints['EM DASH']}${codePoints.HYPHEN}`,
   singleQuotes: '‚\'‘’ʼ‛´`′',
 };
 
