@@ -33,10 +33,10 @@ const TEST_CASES = [
   {
     name: 'Replace quotes after dashes',
     test: {
-      // Requires dash replacement
-      'Test-"word"': 'Test-“word”',
-      'Test–"word"': 'Test–“word”',
-      'Test—"word"': 'Test—“word”',
+      'Test - "word"': 'Test - “word”', // Hyphen
+      'Test-"word"': 'Test-“word”', // Hyphen
+      'Test–"word"': 'Test–“word”', // En
+      'Test—"word"': 'Test—“word”', // Em
     },
   },
   // Emdash replacement

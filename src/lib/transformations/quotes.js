@@ -27,20 +27,9 @@ const quotes = function quotes(string) {
   // https://github.com/surfinzap/typopo/blob/master/src/lib/punctuation/single-quotes.js
   {
     const CONTRACTIONS = 'cause|em|mid|midst|mongst|prentice|round|sblood|ssdeath|sfoot|sheart|shun|slid|slife|slight|snails|strewth|til|tis|twas|tween|twere|twill|twixt|twould';
-    const REGEXP = new RegExp(`(${patterns.singleQuote})(${CONTRACTIONS})`, 'gi');
+    const REGEXP = new RegExp(`([${patterns.singleQuotes}])(${CONTRACTIONS})`, 'gi');
     const REPLACEMENT = `${codePoints['RIGHT SINGLE QUOTATION MARK']}$2`;
 
-    formattedString = formattedString.replace(REGEXP, REPLACEMENT);
-  }
-
-  // In-word contractions (Typopo)
-  // e.g. Don’t, I’m, O’Doole, 69’ers
-  // https://github.com/surfinzap/typopo/blob/master/src/lib/punctuation/single-quotes.js
-  {
-    // eslint-disable-next-line no-useless-escape
-    const PATTERN = `([\d${patterns.latin}])(${patterns.singleQuote})([${patterns.latin}])`;
-    const REGEXP = new RegExp(PATTERN, 'gi');
-    const REPLACEMENT = `$1${codePoints['RIGHT SINGLE QUOTATION MARK']}$3`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 
@@ -62,14 +51,26 @@ const quotes = function quotes(string) {
 
   // Right Double Quotes (JS Prettify)
   {
-    const REGEXP = new RegExp(/"($|[)\s-–—/.,;:?!\u2019])/, 'gi');
+    // Original pattern from jsPrettify:
+    // "($|[\\)\\s/.,;:?!\\u2019])
+
+    // eslint-disable-next-line no-useless-escape
+    const PATTERN = `${codePoints['QUOTATION MARK']}($|[)\\s${patterns.dashes}/.,;:?!${codePoints['RIGHT SINGLE QUOTATION MARK']}\])`;
+    const REGEXP = new RegExp(PATTERN, 'gi');
     const REPLACEMENT = `${codePoints['RIGHT DOUBLE QUOTATION MARK']}$1`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }
 
   // Left Double Quotes (JS Prettify)
   {
-    const REGEXP = new RegExp(/(^|[(\s-–—/\u2018])"/, 'gi');
+    // Original pattern from jsPrettify:
+    // (^|[\\(\\s-/\\u2018])"
+    // (^|[\(\s-/\u2018])
+
+    // eslint-disable-next-line no-useless-escape
+    const PATTERN = `(^|[(\\s${patterns.dashes}/${codePoints['LEFT SINGLE QUOTATION MARK']}])${codePoints['QUOTATION MARK']}`;
+    const REGEXP = new RegExp(PATTERN, 'gi');
+
     const REPLACEMENT = `$1${codePoints['LEFT DOUBLE QUOTATION MARK']}`;
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }

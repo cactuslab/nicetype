@@ -35,7 +35,7 @@ const dashes = function dashes(string, options) {
   // Replace spaced dash between words with em dash
   if (opts.replaceSpacedDashesWithEmDash) {
     const PATTERN = `([${patterns.spaces}]?)([${codePoints.HYPHEN}${codePoints['HYPHEN-MINUS']}])([${patterns.spaces}]?)([${patterns.latin}])`;
-    const REGEXP = new RegExp(PATTERN, 'gi');
+    const REGEXP = new RegExp(PATTERN, 'giu');
     const REPLACEMENT = '—$4';
     formattedString = formattedString.replace(REGEXP, REPLACEMENT);
   }

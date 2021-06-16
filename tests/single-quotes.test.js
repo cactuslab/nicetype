@@ -30,7 +30,7 @@ const TEST_CASES = [
       'Expo \'70': 'Expo ’70',
       '69\'ers': '69’ers',
       'iPhone6\'s': 'iPhone6’s',
-      '1990\'s': '1990’s',
+      '1990\'s': '1990’s', // This is erroneous apostrophe use, but we’ll test for it anyway
       'don\'t': 'don’t',
       'Paul’s Diner': 'Paul’s Diner',
     },
@@ -38,7 +38,7 @@ const TEST_CASES = [
   {
     name: 'Replace apostrophes at word openings',
     test: {
-      // '\'Tis and \'twere.': '’Tis and ’twere.',
+      '\'Tis and \'twere.': '’Tis and ’twere.',
       '\'Tis the season': '’Tis the season',
       '\'sblood': '’sblood',
       '\'Twas the Night Before Christmas': '’Twas the Night Before Christmas',

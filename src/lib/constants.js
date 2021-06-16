@@ -37,7 +37,7 @@ export const codePoints = {
 
 export const patterns = {
   // Unicode blocks: Basic Latin, Latin-1 Supplement, Latin Extended-A, Latin Extended-B
-  latin: '\u0000-\u007F\u0080-\u00FF\u0100-\u017F\u0180-\u024F',
+  latin: '\u0000-\u007F\u0080-\u00FF\u0100-\u017F\u0180-\u024F', // FIXME: Inline or investigate Unicode property escapes
   spaces: `${codePoints.SPACE}${codePoints['NO-BREAK SPACE']}${codePoints['EN SPACE']}${codePoints['EM SPACE']}${codePoints['PUNCTUATION SPACE']}${codePoints['THIN SPACE']}${codePoints['HAIR SPACE']}${codePoints['NARROW NO-BREAK SPACE']}`,
   dashes: `${codePoints['HYPHEN-MINUS']}${codePoints['EN DASH']}${codePoints['EM DASH']}${codePoints.HYPHEN}`,
   singleQuotes: '‚\'‘’ʼ‛´`′',
