@@ -1,6 +1,6 @@
 {
   "name": "@cactuslab/nicetype",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform plain ASCII punctuation into “smart” Unicode equivalents.",
   "main": "dist/nicetype.js",
   "module": "src/index.js",
