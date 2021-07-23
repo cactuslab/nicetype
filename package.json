@@ -17,7 +17,9 @@
     "test": "jest",
     "lint": "pnpx eslint src/**",
     "prepare": "pnpm run lint && pnpm test",
-    "build": "pnpx webpack --config _develop/webpack.config.prod.js --env NODE_ENV=prod"
+    "build": "pnpx webpack --config _develop/webpack.config.prod.js --env NODE_ENV=prod",
+    "preversion": "npm run prepare",
+    "version": "npm run build && git add -A dist"
   },
   "browserslist": [
     "defaults"
