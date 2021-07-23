@@ -1,13 +1,17 @@
 const path = require('path');
 const pkg = require('../package.json');
 
+// This is messy but whatever
+const ORGANISATION_SCOPE = '@cactuslab/';
+const PACKAGE_NAME = `${pkg.name}`.replace(ORGANISATION_SCOPE, '');
+
 module.exports = (env) => ({
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: `${pkg.name}.js`,
+    filename: `${PACKAGE_NAME}.js`,
     library: {
-      name: `${pkg.name}`,
+      name: `${PACKAGE_NAME}`,
       type: 'umd',
     },
     clean: true,

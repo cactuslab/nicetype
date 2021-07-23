@@ -16,8 +16,9 @@ While jsPrettify’s rules aren’t the most thorough—this is also its strengt
 
 ## Installation
 
-```
-npm install --save nicetype
+```shell
+pnpm add @cactuslab/nicetype
+npm install --save @cactuslab/nicetype
 ```
 
 ## Usage
@@ -66,8 +67,14 @@ Applies transformations to an element and its childrens’ [text nodes](https://
 
 * Non-breaking space: Short words/widow prevention
 * Expose advanced/opinionated dash options…, or remove entirely?
-* Add NVM
 * TypeScript
+
+### Development/Builds
+
+```shell
+nvm use
+pnpm install
+```
 
 ### See Also
 
