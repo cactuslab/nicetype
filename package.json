@@ -6,7 +6,7 @@
   "module": "src/index.js",
   "files": [
     "dist/**/*.js",
-    "src/index.js"
+    "src/"
   ],
   "engines": {
     "node": "14.16.1",
